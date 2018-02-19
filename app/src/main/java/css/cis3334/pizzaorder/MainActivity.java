@@ -60,9 +60,9 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
 
     public void onClickOrder(View view) {
         // ****** Students need to add code here to get information from the UI widgets...
-       
-        }
         pizzaOrderSystem.setDelivery(chkbxDelivery.isChecked());
+        }
+        
 
         {
             String size = "";
@@ -90,4 +90,5 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
 
         }
     }
-}
+
+
