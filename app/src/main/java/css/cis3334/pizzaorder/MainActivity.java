@@ -60,36 +60,37 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
 
     public void onClickOrder(View view) {
         // ****** Students need to add code here to get information from the UI widgets...
-        if(chkbxDelivery.isChecked()){
+        if (chkbxDelivery.isChecked()) {
             pizzaOrderSystem.setDelivery(true);
-        }else{
+        } else {
             pizzaOrderSystem.setDelivery(false);
         }
-        pizzaOrderSystem.setDelivery( chkbxDelivery.isChecked() );
-        String orderDescription = pizzaOrderSystem.OrderPizza(spinnerToppings.getSelectedItem().toString(),"small", chkbxCheese.isChecked() );
-        String size = "Large";{
+        pizzaOrderSystem.setDelivery(chkbxDelivery.isChecked());
+        String orderDescription = pizzaOrderSystem.OrderPizza(spinnerToppings.getSelectedItem().toString(), "small", chkbxCheese.isChecked());
+        String size = "Large";
+        {
 
-        if (rbSmall.isChecked()) {
-            size = "small";
+            if (rbSmall.isChecked()) {
+                size = "small";
+            }
+
+            if (rbMedium.isChecked()) {
+                size = "medium";
+            }
+            if (rbLarge.isChecked()) {
+                size = "large";
+            }
+
+            // ****** Students need to modify the call to OrderPizza to order the type of pizza the user selects using the UI widgets
+
+
+            //display a pop up message for a long period of time
+            Toast.makeText(getApplicationContext(), "You have ordered a " + orderDescription, Toast.LENGTH_LONG).show();
+            // get the order total from the order system
+            txtTotal.setText("Total Due: " + pizzaOrderSystem.getTotalBill().toString());
+            // add this pizza to the textview the lists the pizzas
+            txtPizzasOrdered.append(orderDescription + "\n");
+
         }
-
-        if (rbMedium.isChecked()) {
-            size = "medium";
-        }
-        if (rbLarge.isChecked()) {
-            size = "large";
-        }
-
-        // ****** Students need to modify the call to OrderPizza to order the type of pizza the user selects using the UI widgets
-
-
-
-        //display a pop up message for a long period of time
-        Toast.makeText(getApplicationContext(), "You have ordered a "+orderDescription , Toast.LENGTH_LONG).show();
-        // get the order total from the order system
-        txtTotal.setText("Total Due: " + pizzaOrderSystem.getTotalBill().toString());
-        // add this pizza to the textview the lists the pizzas
-        txtPizzasOrdered.append(orderDescription+"\n");
-
     }
 }
